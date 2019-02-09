@@ -63,7 +63,7 @@ script:
     if [ "$TRAVIS_OS_NAME" != "windows" ]; then
       build/tests/cpp/yaramod_tests
     else
-      build/tests/cpp/yaramod_tests.exe
+      build/tests/cpp/Release/yaramod_tests
     fi
   - pytest tests/python
 

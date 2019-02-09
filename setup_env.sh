@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 SCRIPT_DIR="$(cd "$(dirname "$0")"; pwd -P)"
 VIRTUALENV_DIR="${SCRIPT_DIR}/env"
 
