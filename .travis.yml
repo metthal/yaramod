@@ -28,6 +28,14 @@ matrix:
       #    - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
     - os: windows
       dist: 1803-containers
+      env:
+          - PYTHON_VERSION: 3.7.2
+          - PYTHON_PATH: /c/Python37:/c/Python37/Scripts
+    - os: windows
+      dist: 1803-containers
+      env:
+          - PYTHON_VERSION: 3.6.8
+          - PYTHON_PATH: /c/Python36:/c/Python36/Scripts
 
 
 install:
@@ -36,8 +44,9 @@ install:
     if [ "$TRAVIS_OS_NAME" = "osx" ]; then
       brew install flex bison gnu-sed && brew upgrade python;
     elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
-      choco install python --version 3.7.2 winflexbison3
-      export PATH="/c/Python37:/c/Python37/Scripts:/c/Program Files/CMake/bin:$PATH"
+      choco install python --version ${PYTHON_VERSION}
+      choco install winflexbison3
+      export PATH="${PYTHON_PATH}:/c/Program Files/CMake/bin:$PATH"
       export CMAKE_INCLUDE_PATH="/c/ProgramData/chocolatey/lib/winflexbison3/tools"
     fi
 
