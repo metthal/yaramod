@@ -59,7 +59,12 @@ script:
     fi
   - python setup.py build --with-unit-tests
   - python setup.py install
-  - build/tests/cpp/yaramod_tests
+  - |
+    if [ "$TRAVIS_OS_NAME" != "windows" ]; then
+      build/tests/cpp/yaramod_tests
+    else
+      build/tests/cpp/yaramod_tests.exe
+    fi
   - pytest tests/python
 
 branches:
