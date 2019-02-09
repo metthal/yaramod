@@ -3,29 +3,29 @@ language: cpp
 matrix:
   fast_finish: true
   include:
-    - os: linux
-      dist: xenial
-      compiler: gcc-5
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - build-essential
-            - coreutils
-            - gcc-5
-            - g++-5
-            - python3.5
-            - python3.5-venv
-            - cmake
-            - flex
-            - bison
-      env:
-        - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && NPROC=$(nproc)"
-    - os: osx
-      osx_image: xcode8.3
-      env:
-        - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
+      #- os: linux
+      #  dist: xenial
+      #  compiler: gcc-5
+      #  addons:
+      #    apt:
+      #      sources:
+      #        - ubuntu-toolchain-r-test
+      #      packages:
+      #        - build-essential
+      #        - coreutils
+      #        - gcc-5
+      #        - g++-5
+      #        - python3.5
+      #        - python3.5-venv
+      #        - cmake
+      #        - flex
+      #        - bison
+      #  env:
+      #    - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && NPROC=$(nproc)"
+      #- os: osx
+      #  osx_image: xcode8.3
+      #  env:
+      #    - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
     - os: windows
       dist: 1803-containers
 
@@ -36,9 +36,9 @@ install:
     if [ "$TRAVIS_OS_NAME" = "osx" ]; then
       brew install flex bison gnu-sed && brew upgrade python;
     elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
-      env
-      msbuild
       choco install cmake python winflexbison3
+      ls -la "${VS140COMNTOOLS}"
+      ls -la /c/ProgramData/chocolatey/bin
     fi
 
 before_script:
