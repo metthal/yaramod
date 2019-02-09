@@ -4,7 +4,7 @@ matrix:
   fast_finish: true
   include:
     - os: linux
-      dist: trusty
+      dist: xenial
       compiler: gcc-5
       addons:
         apt:
@@ -15,8 +15,8 @@ matrix:
             - coreutils
             - gcc-5
             - g++-5
-            - python3.4
-            - python3.4-venv
+            - python3.5
+            - python3.5-venv
             - cmake
             - flex
             - bison
