@@ -26,10 +26,16 @@ matrix:
       osx_image: xcode8.3
       env:
         - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
+    - os: windows
+
 
 install:
   # We need to install newer versions of Flex and Bison on MacOS X.
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install flex bison gnu-sed && brew upgrade python; fi
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+      brew install flex bison gnu-sed && brew upgrade python;
+    elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
+      choco install python3 winflexbison3
+    fi
 
 before_script:
   - eval "${MATRIX_EVAL}"
