@@ -36,9 +36,9 @@ install:
     if [ "$TRAVIS_OS_NAME" = "osx" ]; then
       brew install flex bison gnu-sed && brew upgrade python;
     elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
-      choco install cmake python winflexbison3
-      ls -la "${VS140COMNTOOLS}"
-      ls -la /c/ProgramData/chocolatey/bin
+      choco install cmake winflexbison3
+      choco install python --version 3.7.2
+      export PATH="/c/Python37:/c/Python37/Scripts:/c/Program Files/CMake/bin:$PATH"
     fi
 
 before_script:
