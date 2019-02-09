@@ -38,11 +38,8 @@ install:
     elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
       choco install cmake winflexbison3
       choco install python --version 3.7.2
-      ls -la /c/ProgramData/chocolatey
-      ls -la /c/ProgramData/chocolatey/lib
-      ls -la /c/ProgramData/chocolatey/lib/winflexbison3
-      ls -la /c/ProgramData/chocolatey/lib/winflexbison3/tools
       export PATH="/c/Python37:/c/Python37/Scripts:/c/Program Files/CMake/bin:$PATH"
+      export CMAKE_INCLUDE_PATH="/c/ProgramData/chocolatey/lib/winflexbison3/tools"
     fi
 
 before_script:
