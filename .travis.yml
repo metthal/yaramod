@@ -38,6 +38,10 @@ install:
     elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
       choco install cmake winflexbison3
       choco install python --version 3.7.2
+      ls -la /c/ProgramData/chocolatey
+      ls -la /c/ProgramData/chocolatey/lib
+      ls -la /c/ProgramData/chocolatey/lib/winflexbison3
+      ls -la /c/ProgramData/chocolatey/lib/winflexbison3/tools
       export PATH="/c/Python37:/c/Python37/Scripts:/c/Program Files/CMake/bin:$PATH"
     fi
 
@@ -50,7 +54,12 @@ before_script:
 
 script:
   - ./setup_env.sh
-  - source env/bin/activate
+  - |
+    if [ "$TRAVIS_OS_NAME" != "windows" ]; then
+      source env/bin/activate
+    else
+      export PATH="$PWD/env/Scripts:$PATH"
+    fi
   - python setup.py build --with-unit-tests
   - python setup.py install
   - build/tests/cpp/yaramod_tests
