@@ -1,4 +1,4 @@
-SCRIPT_DIR="$(dirname "$(realpath $_)")"
+SCRIPT_DIR="$(dirname "$(realpath ${BASH_SOURCE[0]})")"
 VIRTUALENV_DIR="${SCRIPT_DIR}/env"
 
 if [ ! -d "${VIRTUALENV_DIR}" ]; then
