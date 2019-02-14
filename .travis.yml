@@ -2,7 +2,8 @@ language: cpp
 
 env:
   global:
-    PYPI_USERNAME: metthal
+    - PYPI_USERNAME: metthal
+    - secure: bFGZZmCC0Qud0TdJ1yJ3j8M449fmKn/Yk/JrGA/jtbdTlVEEW6C+mHUICuTHgMH1YD7+y5SMMsT1aA0t7uLSLjdIYmwKLBpJoPgoDDIJ1TCTtZ81/xjDasSrf5uFADEuVfMdCp6xD/2LUPjLSg+upgZjYUWIgH8PiLzJCdACu3Kod+FbzlP5UKHbbSQjOaOcskDqrAcmQvoswCuoX8kQNWvlq+42cHkXFWPpY1C759u7pCpoiwEgTsIr0vzj0C2gErdrX0tUlIsHNqkosqg/1Ek0DTmyT4dN/0jKKOHAgdwiVZc4E/6ZXJ08xqJesUviXqv3jTkxZ1B2jsROlvJgYmduQIChqaKJJabGYivHYpZJ2po62pTztbzdQkYoYcdxv3IvBAS9EskDGXP8JybjC5OMP49h5ntD/5YHuu0sKxi7y2+B9EeGhQcDzyCWxbSoyKeGTRbFACcXqnlTR2OxM40+4aj4+A3g0HWzFZevSBXz2/6aQLnVud5qDzxMqT06e6Tv84lJNPOELkr396GmWnU2O0N8W+lxJMikrXA4V4D5HYOMT7bas4goe5M9NRokjw7DVvn9HUVVKe874JgcY3ACvd/29YMWQ7F6zxKO+p2aPB+ob1CvvLNlLMuWGuxIUg4oFmWRjDbnu7gYPMT+hjeF+lof+h7u2WSNVygSOEM=
 
 matrix:
   fast_finish: true
