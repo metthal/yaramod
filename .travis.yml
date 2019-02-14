@@ -82,7 +82,6 @@ deploy:
   skip_cleanup: true
   user: metthal
   on:
-    tags: true
     condition: $DEPLOY_TO_PYPI = true
 
 branches:
