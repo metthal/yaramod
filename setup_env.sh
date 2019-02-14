@@ -39,5 +39,5 @@ else
 fi
 
 source "${SCRIPT_DIR}/use_env.sh"
-pip install -r wheel
+pip install wheel
 pip install -r "${SCRIPT_DIR}/requirements.txt"
