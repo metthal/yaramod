@@ -3,39 +3,37 @@ language: cpp
 matrix:
   fast_finish: true
   include:
-      #- os: linux
-      #  dist: xenial
-      #  compiler: gcc-5
-      #  addons:
-      #    apt:
-      #      sources:
-      #        - ubuntu-toolchain-r-test
-      #      packages:
-      #        - build-essential
-      #        - coreutils
-      #        - gcc-5
-      #        - g++-5
-      #        - python3.5
-      #        - python3.5-venv
-      #        - cmake
-      #        - flex
-      #        - bison
-      #  env:
-      #    - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && NPROC=$(nproc)"
-      #- os: osx
-      #  osx_image: xcode8.3
-      #  env:
-      #    - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
-    - os: windows
-      dist: 1803-containers
-      env:
-          - PYTHON_VERSION: 3.7.2
-          - PYTHON_PATH: /c/Python37:/c/Python37/Scripts
-    - os: windows
-      dist: 1803-containers
-      env:
-          - PYTHON_VERSION: 3.6.8
-          - PYTHON_PATH: /c/Python36:/c/Python36/Scripts
+      - os: linux
+        dist: xenial
+        compiler: gcc-5
+        addons:
+          apt:
+            packages:
+              - build-essential
+              - coreutils
+              - gcc-5
+              - g++-5
+              - python3.5
+              - python3.5-venv
+              - cmake
+              - flex
+              - bison
+        env:
+          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && NPROC=$(nproc)"
+      - os: osx
+        osx_image: xcode8.3
+        env:
+          - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
+      - os: windows
+        dist: 1803-containers
+        env:
+            - PYTHON_VERSION: 3.7.2
+            - PYTHON_PATH: /c/Python37:/c/Python37/Scripts
+      - os: windows
+        dist: 1803-containers
+        env:
+            - PYTHON_VERSION: 3.6.8
+            - PYTHON_PATH: /c/Python36:/c/Python36/Scripts
 
 
 install:
