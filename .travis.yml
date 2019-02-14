@@ -13,6 +13,7 @@ matrix:
               - coreutils
               - gcc-5
               - g++-5
+              - pandoc
               - python3.5
               - python3.5-venv
               - cmake
@@ -43,7 +44,7 @@ install:
       brew install flex bison gnu-sed && brew upgrade python;
     elif [ "$TRAVIS_OS_NAME" = "windows" ]; then
       choco install python --version ${PYTHON_VERSION}
-      choco install winflexbison3
+      choco install pandoc winflexbison3
       export PATH="${PYTHON_PATH}:/c/Program Files/CMake/bin:$PATH"
       export CMAKE_INCLUDE_PATH="/c/ProgramData/chocolatey/lib/winflexbison3/tools"
     fi
