@@ -20,21 +20,24 @@ matrix:
               - flex
               - bison
         env:
-          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && NPROC=$(nproc)"
+          - MATRIX_EVAL: "CC=gcc-5 && CXX=g++-5 && NPROC=$(nproc)"
+          - DEPLOY_TO_PYPI: true
       - os: osx
         osx_image: xcode8.3
         env:
-          - MATRIX_EVAL="NPROC=$(sysctl -n hw.physicalcpu)"
+          - MATRIX_EVAL: "NPROC=$(sysctl -n hw.physicalcpu)"
       - os: windows
         dist: 1803-containers
         env:
-            - PYTHON_VERSION: 3.7.2
-            - PYTHON_PATH: /c/Python37:/c/Python37/Scripts
+          - PYTHON_VERSION: 3.7.2
+          - PYTHON_PATH: /c/Python37:/c/Python37/Scripts
+          - DEPLOY_TO_PYPI: true
       - os: windows
         dist: 1803-containers
         env:
-            - PYTHON_VERSION: 3.6.8
-            - PYTHON_PATH: /c/Python36:/c/Python36/Scripts
+          - PYTHON_VERSION: 3.6.8
+          - PYTHON_PATH: /c/Python36:/c/Python36/Scripts
+          - DEPLOY_TO_PYPI: true
 
 
 install:
@@ -73,6 +76,14 @@ script:
       build/tests/cpp/Release/yaramod_tests
     fi
   - pytest tests/python
+
+deploy:
+  provider: pypi
+  skip_cleanup: true
+  user: metthal
+  on:
+    tags: true
+    condition: $DEPLOY_TO_PYPI = true
 
 branches:
   only:
